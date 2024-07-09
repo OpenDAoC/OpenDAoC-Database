@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `salvage` (
   `ObjectType` int(11) NOT NULL DEFAULT 0,
   `SalvageLevel` int(11) NOT NULL DEFAULT 0,
@@ -15,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `salvage` (
   KEY `I_Salvage_ObjectType` (`ObjectType`),
   KEY `I_Salvage_SalvageLevel` (`SalvageLevel`),
   KEY `I_Salvage_Realm` (`Realm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `salvage` DISABLE KEYS */;
 REPLACE INTO `salvage` (`ObjectType`, `SalvageLevel`, `Id_nb`, `Realm`, `LastTimeRowUpdated`, `Salvage_ID`) VALUES
@@ -364,3 +365,7 @@ REPLACE INTO `salvage` (`ObjectType`, `SalvageLevel`, `Id_nb`, `Realm`, `LastTim
 	(42, 8, 'netherite_metal_bars', 0, '2000-01-01 00:00:00', 'netherite_metal_bars22');
 /*!40000 ALTER TABLE `salvage` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

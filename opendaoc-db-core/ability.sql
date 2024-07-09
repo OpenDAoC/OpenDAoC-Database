@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `ability` (
   `AbilityID` int(11) NOT NULL AUTO_INCREMENT,
   `KeyName` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -15,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `ability` (
   `LastTimeRowUpdated` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`AbilityID`),
   UNIQUE KEY `U_Ability_KeyName` (`KeyName`)
-) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `ability` DISABLE KEYS */;
 REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Description`, `IconID`, `Implementation`, `LastTimeRowUpdated`) VALUES
@@ -352,3 +353,7 @@ REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Descripti
 	(370, 'AtlasOF_DeterminationHybrid', 'Determination', 370, 'Reduces the duration of all crowd control spells by the listed percentage. Effect is cumulative at each level increase.', 0, 'DOL.GS.RealmAbilities.AtlasOF_DeterminationHybridAbility', '2000-01-01 00:00:00');
 /*!40000 ALTER TABLE `ability` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

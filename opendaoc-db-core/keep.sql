@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `keep` (
   `KeepID` int(11) NOT NULL DEFAULT 0,
   `Name` text NOT NULL,
@@ -27,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `keep` (
   `Keep_ID` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`KeepID`),
   UNIQUE KEY `U_Keep_Keep_ID` (`Keep_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `keep` DISABLE KEYS */;
 REPLACE INTO `keep` (`KeepID`, `Name`, `Region`, `X`, `Y`, `Z`, `Heading`, `Realm`, `Level`, `ClaimedGuildName`, `AlbionDifficultyLevel`, `MidgardDifficultyLevel`, `HiberniaDifficultyLevel`, `OriginalRealm`, `KeepType`, `BaseLevel`, `SkinType`, `CreateInfo`, `LastTimeRowUpdated`, `Keep_ID`) VALUES
@@ -112,3 +113,7 @@ REPLACE INTO `keep` (`KeepID`, `Name`, `Region`, `X`, `Y`, `Z`, `Heading`, `Real
 	(902, 'Hibernia Portal Keep', 242, 280252, 319625, 10128, 180, 3, 1, NULL, 1, 1, 1, 3, 0, 100, 0, '', '2000-01-01 00:00:00', '902');
 /*!40000 ALTER TABLE `keep` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

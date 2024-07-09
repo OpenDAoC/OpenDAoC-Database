@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `style` (
   `Style_ID` varchar(255) NOT NULL DEFAULT '',
   `ID` int(11) NOT NULL DEFAULT 0,
@@ -29,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `style` (
   `GrowthOffset` double NOT NULL DEFAULT 0,
   PRIMARY KEY (`StyleID`),
   KEY `I_Style_SpecKeyName` (`SpecKeyName`)
-) ENGINE=InnoDB AUTO_INCREMENT=1201 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1201 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `style` DISABLE KEYS */;
 REPLACE INTO `style` (`Style_ID`, `ID`, `ClassId`, `Name`, `SpecKeyName`, `SpecLevelRequirement`, `Icon`, `EnduranceCost`, `StealthRequirement`, `OpeningRequirementType`, `OpeningRequirementValue`, `AttackResultRequirement`, `WeaponTypeRequirement`, `GrowthRate`, `BonusToHit`, `BonusToDefense`, `TwoHandAnimation`, `RandomProc`, `ArmorHitLocation`, `StyleID`, `LastTimeRowUpdated`, `GrowthOffset`) VALUES
@@ -1234,3 +1235,7 @@ REPLACE INTO `style` (`Style_ID`, `ID`, `ClassId`, `Name`, `SpecKeyName`, `SpecL
 	('', 85, 19, 'Devastate', 'Crush', 50, 85, 15, 0, 0, 82, 7, 2, 0.864, 15, -10, 85, 0, 0, 1200, '2021-09-26 00:00:00', 0);
 /*!40000 ALTER TABLE `style` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

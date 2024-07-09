@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `linexspell` (
   `LineXSpell_ID` varchar(255) NOT NULL DEFAULT '',
   `LineName` varchar(255) NOT NULL,
@@ -13,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `linexspell` (
   `LastTimeRowUpdated` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`LineXSpell_ID`),
   KEY `I_LineXSpell_LineName` (`LineName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `linexspell` DISABLE KEYS */;
 REPLACE INTO `linexspell` (`LineXSpell_ID`, `LineName`, `SpellID`, `Level`, `PackageID`, `LastTimeRowUpdated`) VALUES
@@ -3737,3 +3738,7 @@ REPLACE INTO `linexspell` (`LineXSpell_ID`, `LineName`, `SpellID`, `Level`, `Pac
 	('weaponskill_condebuff', 'Mundane Poisons', 300311, 37, NULL, '2000-01-01 00:00:00');
 /*!40000 ALTER TABLE `linexspell` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

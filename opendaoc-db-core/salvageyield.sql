@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `salvageyield` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ObjectType` int(11) NOT NULL DEFAULT 0,
@@ -17,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `salvageyield` (
   KEY `I_SalvageYield_ObjectType` (`ObjectType`),
   KEY `I_SalvageYield_SalvageLevel` (`SalvageLevel`),
   KEY `I_SalvageYield_Realm` (`Realm`)
-) ENGINE=InnoDB AUTO_INCREMENT=366 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=366 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `salvageyield` DISABLE KEYS */;
 REPLACE INTO `salvageyield` (`ID`, `ObjectType`, `SalvageLevel`, `MaterialId_nb`, `Count`, `Realm`, `PackageID`, `LastTimeRowUpdated`) VALUES
@@ -370,3 +371,7 @@ REPLACE INTO `salvageyield` (`ID`, `ObjectType`, `SalvageLevel`, `MaterialId_nb`
 	(365, 102, 2, 'ironwood_wooden_boards', 6, 0, 'makeshift_siege_ram_apparatus', '2000-01-01 00:00:00');
 /*!40000 ALTER TABLE `salvageyield` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

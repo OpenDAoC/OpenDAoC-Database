@@ -4,6 +4,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `spellxcustomvalues` (
   `SpellXCustomValuesID` int(11) NOT NULL,
   `SpellID` int(11) NOT NULL,
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `spellxcustomvalues` (
   PRIMARY KEY (`CustomParamID`),
   KEY `I_SpellXCustomValues_SpellID` (`SpellID`),
   KEY `I_SpellXCustomValues_KeyName` (`KeyName`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*!40000 ALTER TABLE `spellxcustomvalues` DISABLE KEYS */;
 REPLACE INTO `spellxcustomvalues` (`SpellXCustomValuesID`, `SpellID`, `KeyName`, `Value`, `LastTimeRowUpdated`, `CustomParamID`) VALUES
@@ -63,3 +64,7 @@ REPLACE INTO `spellxcustomvalues` (`SpellXCustomValuesID`, `SpellID`, `KeyName`,
 	(0, 5164, 'InternalIconID', '1543', '2000-01-01 00:00:00', 43);
 /*!40000 ALTER TABLE `spellxcustomvalues` ENABLE KEYS */;
 
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
