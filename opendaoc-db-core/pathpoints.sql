@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `pathpoints` (
   `PathID` varchar(255) NOT NULL,
   `Step` int(11) NOT NULL DEFAULT 0,
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `pathpoints` (
   `PathPoints_ID` varchar(255) NOT NULL,
   PRIMARY KEY (`PathPoints_ID`),
   KEY `I_PathPoints_PathID` (`PathID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `pathpoints` DISABLE KEYS */;
 REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
@@ -3670,7 +3669,8 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('HS_Raumarik_GnaFaste', 18, 713584, 785285, 4672, 1000, 0, '2021-12-13 15:30:05', '2eb19941-e92e-4289-85cd-f0507faab82d'),
 	('HS_GnaFaste_FortVeldon', 92, 743453, 827297, 4496, 1000, 0, '2000-01-01 00:00:00', '2eb29d9b-bcbb-4c2a-837a-b7a81e57d95a'),
 	('HS_Necht_Droighaid', 40, 379406, 418028, 4972, 1750, 0, '2018-01-06 14:34:07', '2eb5d0fc-58bf-4383-957d-a532a345ce47'),
-	('hs_hafheim_halgost', 29, 249416, 224932, 5161, 1000, 0, '2000-01-01 00:00:00', '2eb7eb32-6907-4371-a9e4-ff6bbd6ab60b'),
+	('hs_hafheim_halgost', 29, 249416, 224932, 5161, 1000, 0, '2000-01-01 00:00:00', '2eb7eb32-6907-4371-a9e4-ff6bbd6ab60b');
+REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
 	('Innis Carthaig', 40, 310848, 657983, 5026, 1000, 0, '2000-01-01 00:00:00', '2ebb1ec2-19ef-451e-83ac-1bb30280c7a0'),
 	('HS_Aegirhamm_Bjarken', 56, 289674, 300584, 4160, 1000, 0, '2018-01-13 02:14:13', '2ebcd370-9778-4c8a-a188-7900c7cf1920'),
 	('Wyvern_ticket_to_CulraidPheuloc', 9, 332967, 622281, 6797, 1120, 0, '2000-01-01 00:00:00', '2ebd5d44-806e-4da6-9234-31e60e5b103f'),
@@ -7317,9 +7317,9 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('cotswold_guard_2', 4, 563278, 511438, 2284, 1000, 0, '2020-05-25 18:38:45', '5d2a0aac-6aa5-4c0b-88fc-9df44949f96d'),
 	('HS_TirNaNogNord_InnisCarthaig', 5, 313298, 467880, 5162, 437, 0, '2018-01-06 01:54:11', '5d2a9a6b-4003-4cc1-8c2a-d251f469e5da'),
 	('HS_Anniogel_CaerDiogel', 63, 435584, 493278, 3088, 400, 0, '2018-01-11 02:02:39', '5d306406-60d1-408f-94d8-bac772521b8a'),
-	('HS_WesternCornwall_CamelotEst', 134, 564409, 594971, 2066, 1000, 0, '2000-01-01 00:00:00', '5d34d427-59c1-4c6d-8d81-7b3d68aaa208'),
-	('HS_Cotswold_CornwallStation', 35, 581988, 558389, 1896, 1750, 0, '2015-02-11 06:57:57', '5d360c6a-19bd-4d56-b6d2-36a35b892e2b');
+	('HS_WesternCornwall_CamelotEst', 134, 564409, 594971, 2066, 1000, 0, '2000-01-01 00:00:00', '5d34d427-59c1-4c6d-8d81-7b3d68aaa208');
 REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
+	('HS_Cotswold_CornwallStation', 35, 581988, 558389, 1896, 1750, 0, '2015-02-11 06:57:57', '5d360c6a-19bd-4d56-b6d2-36a35b892e2b'),
 	('HS_Mularn_SvasudFaste', 34, 759131, 681286, 4678, 1000, 0, '2021-12-12 23:09:59', '5d3ccb22-77cf-4daa-aade-a289d4844ef3'),
 	('HS_CaerGothwaite_Caifelle', 33, 544962, 512611, 3168, 400, 0, '2018-01-09 23:40:18', '5d3eeaee-bd65-46ee-bccb-676d77e396f6'),
 	('Tir na mBeo', 4, 421400, 492250, 1704, 1000, 0, '2000-01-01 00:00:00', '5d42dae2-10a7-4452-9434-4d9a66346098'),
@@ -10963,7 +10963,8 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('hs_ulvastad_halgost', 1, 205107, 213291, 5192, 1000, 0, '2000-01-01 00:00:00', '8cd15c28-53f8-4ce7-ac2f-c5897f303f27'),
 	('Audliten-GnaFaste', 13, 724300, 790184, 4600, 1000, 0, '2000-01-01 00:00:00', '8cd2281c-96b0-4678-a98e-23477c3cb7fa'),
 	('Vasudheim-Galplen', 3, 768209, 748718, 4552, 1000, 0, '2000-01-01 00:00:00', '8cd61958-432e-493f-8d44-f7cb0ecb268e'),
-	('Wyvern_ticket_to_BrynachFreagus', 19, 377302, 503705, 6505, 1120, 0, '2000-01-01 00:00:00', '8cd7b083-9937-4120-ab49-bb81f1b0fb63'),
+	('Wyvern_ticket_to_BrynachFreagus', 19, 377302, 503705, 6505, 1120, 0, '2000-01-01 00:00:00', '8cd7b083-9937-4120-ab49-bb81f1b0fb63');
+REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
 	('HS_SnowdoniaStation_LlynBarfog', 11, 506493, 404132, 4116, 1000, 0, '2000-01-01 00:00:00', '8cdf3d54-d27c-4931-9ab8-8938c9469bf7'),
 	('GnaFaste-FortVeldon', 75, 795781, 706083, 4704, 1000, 0, '2000-01-01 00:00:00', '8ce3bb9c-7a09-4f42-a117-48bfe3136699'),
 	('HS_GroveofAalidFeie_Necht', 27, 354753, 406891, 4452, 1750, 0, '2018-01-06 19:24:12', '8ce70523-e703-4c7f-bcf9-a8ee18769012'),
@@ -14602,10 +14603,10 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('HS_Anniogel_CaerDiogel', 33, 477557, 493166, 3072, 1000, 0, '2018-01-11 02:02:38', 'bca8bb75-9084-4fe1-9a50-7afe32b228fc'),
 	('HS_InnisCarthaig_TirnamBeo', 60, 341979, 580533, 5167, 1750, 0, '2018-01-06 00:14:41', 'bcb1d57d-647b-4123-8d73-414bff19ab6a'),
 	('BT_ForestSauvage_HibernianCoast', 8, 601162, 542108, 7879, 1000, 0, '2000-01-01 00:00:00', 'bcb1d6dc-3f89-45ce-80cd-779680b0a6d2'),
-	('BT_OceanusHesperos_OceanusBorealh', 16, 331921, 463568, 7970, 1000, 0, '2000-01-01 00:00:00', 'bcb2e0aa-70fb-49a4-9a4f-ffa7b469257c'),
-	('Wyvern_ticket_to_Innis_CarthaigAelerogh', 15, 309610, 665952, 7913, 1000, 0, '2000-01-01 00:00:00', 'bcb5792f-f844-4727-8f70-4447cbd6bcbe'),
-	('HS_Necht_GroveofAalidFeie', 17, 383625, 355946, 3449, 1750, 0, '2018-01-06 15:08:39', 'bcbbcea7-9b59-494b-b94a-59701f32d4ef');
+	('BT_OceanusHesperos_OceanusBorealh', 16, 331921, 463568, 7970, 1000, 0, '2000-01-01 00:00:00', 'bcb2e0aa-70fb-49a4-9a4f-ffa7b469257c');
 REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
+	('Wyvern_ticket_to_Innis_CarthaigAelerogh', 15, 309610, 665952, 7913, 1000, 0, '2000-01-01 00:00:00', 'bcb5792f-f844-4727-8f70-4447cbd6bcbe'),
+	('HS_Necht_GroveofAalidFeie', 17, 383625, 355946, 3449, 1750, 0, '2018-01-06 15:08:39', 'bcbbcea7-9b59-494b-b94a-59701f32d4ef'),
 	('HS_Audliten_Mularn', 95, 788577, 718778, 4685, 1000, 0, '2000-01-01 00:00:00', 'bcbdd6fd-0146-4a89-b480-ea594834fb40'),
 	('BT_OceanusHesperos_OceanusAnatole', 30, 294180, 547002, 7979, 1000, 0, '2000-01-01 00:00:00', 'bcbe57a4-207f-413f-ac9c-a5ee5250fba7'),
 	('HS_Hagall_Knarr', 14, 371322, 380685, 7684, 1000, 0, '2018-01-13 03:34:43', 'bcc13fd8-ca1d-4f05-a10f-c6bd9893889b'),
@@ -18246,7 +18247,8 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('HS_Galplen_Vasudheim', 52, 724019, 793461, 4616, 1000, 0, '2021-12-13 21:05:40', 'ec0852ae-520e-4ec9-b323-a08d282dcf00'),
 	('Dragonfly_ticket_to_Cotswold_VillageIdian', 1, 521141, 617571, 1827, 280, 0, '2000-01-01 00:00:00', 'ec0a6251-588c-4cf9-b294-a3fca047a565'),
 	('HS_Dyrfjell_Aegirhamm', 6, 278652, 322745, 5164, 400, 0, '2018-01-13 03:59:46', 'ec0b3b32-97da-4dcf-be99-91d291c7c4ef'),
-	('HR_CastleSauvage_WestCornwall', 79, 520449, 599665, 1648, 1000, 0, '2021-12-15 17:18:42', 'ec101cce-005a-4631-ad2d-91cce931d691'),
+	('HR_CastleSauvage_WestCornwall', 79, 520449, 599665, 1648, 1000, 0, '2021-12-15 17:18:42', 'ec101cce-005a-4631-ad2d-91cce931d691');
+REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTime`, `LastTimeRowUpdated`, `PathPoints_ID`) VALUES
 	('hs_riley_altacoill', 25, 365425, 349533, 5107, 1000, 0, '2000-01-01 00:00:00', 'ec12f213-2d4e-4f12-a81e-e137a86b02ca'),
 	('HS_Raumarik_Huginfel', 28, 711255, 784354, 4672, 400, 0, '2018-01-12 22:10:51', 'ec172176-8ac1-4081-92ce-49dc62d200db'),
 	('HS_BannDidein_GroveofAalidFeie', 32, 337186, 388370, 4330, 1750, 0, '2018-01-06 14:00:38', 'ec1cb09a-9736-4086-9128-1538babafeeb'),
@@ -19807,7 +19809,3 @@ REPLACE INTO `pathpoints` (`PathID`, `Step`, `X`, `Y`, `Z`, `MaxSpeed`, `WaitTim
 	('Wyvern_ticket_to_Druim_CainUllios', 17, 339887, 472049, 6505, 1120, 0, '2000-01-01 00:00:00', 'ffffc35d-f369-407e-a76b-42d1e3b53225');
 /*!40000 ALTER TABLE `pathpoints` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

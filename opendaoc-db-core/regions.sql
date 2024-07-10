@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `regions` (
   `RegionID` smallint(5) unsigned NOT NULL DEFAULT 0,
   `Name` text NOT NULL,
@@ -21,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `regions` (
   `Regions_ID` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`RegionID`),
   UNIQUE KEY `U_Regions_Regions_ID` (`Regions_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `regions` DISABLE KEYS */;
 REPLACE INTO `regions` (`RegionID`, `Name`, `Description`, `IP`, `Port`, `Expansion`, `HousingEnabled`, `DivingEnabled`, `WaterLevel`, `ClassType`, `IsFrontier`, `LastTimeRowUpdated`, `Regions_ID`) VALUES
@@ -381,7 +380,3 @@ REPLACE INTO `regions` (`RegionID`, `Name`, `Description`, `IP`, `Port`, `Expans
 	(499, 'Region499', 'Hib Launch', '127.0.0.1', 10400, 3, 0, 0, 0, '', 0, '2017-01-08 18:50:22', 'f8759074-38a1-4561-bcf7-2186f9345bae');
 /*!40000 ALTER TABLE `regions` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

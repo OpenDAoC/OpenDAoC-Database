@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `craftedxitem` (
   `CraftedItemId_nb` varchar(255) NOT NULL,
   `IngredientId_nb` text NOT NULL,
@@ -13,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `craftedxitem` (
   `CraftedXItem_ID` varchar(255) NOT NULL,
   PRIMARY KEY (`CraftedXItem_ID`) USING BTREE,
   KEY `I_CraftedXItem_CraftedItemId_nb` (`CraftedItemId_nb`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=DYNAMIC;
 
 /*!40000 ALTER TABLE `craftedxitem` DISABLE KEYS */;
 REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
@@ -3909,7 +3908,8 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('dolomite_cruanach_boots3', 'dolomite_metal_bars', 3, '2000-01-01 00:00:00', '2aede9df-c346-11ec-8871-c5d0c1587542'),
 	('light_green_leather_dye', 'tartaric_acid', 1, '2000-01-01 00:00:00', '2af06dbf-c33e-11ec-8871-c5d0c1587542'),
 	('adamantium_stelskodd_jerkin2', 'seamist_heavy_thread', 4, '2000-01-01 00:00:00', '2af0ce09-c342-11ec-8871-c5d0c1587542'),
-	('small_green_oval-back_cushioned_chair', 'green_oval-back_cushioned_chair', 1, '2000-01-01 00:00:00', '2af10757-c341-11ec-8871-c5d0c1587542'),
+	('small_green_oval-back_cushioned_chair', 'green_oval-back_cushioned_chair', 1, '2000-01-01 00:00:00', '2af10757-c341-11ec-8871-c5d0c1587542');
+REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
 	('dyrwood_staff2', 'dyrwood_wooden_boards', 25, '2000-01-01 00:00:00', '2af9885f-c344-11ec-8871-c5d0c1587542'),
 	('dyrwood_exceptional_magus_staff', 'dyrwood_wooden_boards', 32, '2000-01-01 00:00:00', '2afb1692-c340-11ec-8871-c5d0c1587542'),
 	('tempered_siluric_helm', 'tempered_leather_squares', 34, '2000-01-01 00:00:00', '2afe2b22-c33f-11ec-8871-c5d0c1587542'),
@@ -7790,10 +7790,10 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('flawed_watery_war_spell_stone3', 'leviathan_blood', 4, '2000-01-01 00:00:00', '576f88b5-c348-11ec-8871-c5d0c1587542'),
 	('major_lethal_poison', 'thin_metal_vial', 1, '2000-01-01 00:00:00', '57705e3e-c33e-11ec-8871-c5d0c1587542'),
 	('netherite_big_shillelagh3', 'netherite_metal_bars', 22, '2000-01-01 00:00:00', '5773c0af-c345-11ec-8871-c5d0c1587542'),
-	('silksteel_ruffled_scarf3', 'silksteel_heavy_thread', 10, '2000-01-01 00:00:00', '5775922d-c347-11ec-8871-c5d0c1587542'),
-	('alloy_starkaskodd_sleeves2', 'alloy_metal_bars', 8, '2000-01-01 00:00:00', '5777047a-c342-11ec-8871-c5d0c1587542'),
-	('imperfect_airy_essence_jewel2', 'essence_of_life', 17, '2000-01-01 00:00:00', '5780cc0d-c344-11ec-8871-c5d0c1587542');
+	('silksteel_ruffled_scarf3', 'silksteel_heavy_thread', 10, '2000-01-01 00:00:00', '5775922d-c347-11ec-8871-c5d0c1587542');
 REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
+	('alloy_starkaskodd_sleeves2', 'alloy_metal_bars', 8, '2000-01-01 00:00:00', '5777047a-c342-11ec-8871-c5d0c1587542'),
+	('imperfect_airy_essence_jewel2', 'essence_of_life', 17, '2000-01-01 00:00:00', '5780cc0d-c344-11ec-8871-c5d0c1587542'),
 	('steel_boned_legs', 'brocade_heavy_thread', 7, '2000-01-01 00:00:00', '5782061f-c33d-11ec-8871-c5d0c1587542'),
 	('arcanium_scimitar', 'arcanium_metal_bars', 22, '2000-01-01 00:00:00', '578466fb-c33c-11ec-8871-c5d0c1587542'),
 	('major_lethal_poison', 'bone_salve_extract', 1, '2000-01-01 00:00:00', '57880d91-c33e-11ec-8871-c5d0c1587542'),
@@ -11694,7 +11694,8 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('flawless_airy_nature_spell_stone3', 'air_elemental_essence', 9, '2000-01-01 00:00:00', '81b4dbe3-c348-11ec-8871-c5d0c1587542'),
 	('rawhide_constaic_helm3', 'woolen_heavy_thread', 2, '2000-01-01 00:00:00', '81b6e511-c347-11ec-8871-c5d0c1587542'),
 	('arcanium_svarkedja_helm2', 'tempered_leather_squares', 17, '2000-01-01 00:00:00', '81bac034-c342-11ec-8871-c5d0c1587542'),
-	('netherite_superior_mistletoe_spiked_wreath3', 'wyvernskin_heavy_thread', 4, '2000-01-01 00:00:00', '81bad9c3-c346-11ec-8871-c5d0c1587542'),
+	('netherite_superior_mistletoe_spiked_wreath3', 'wyvernskin_heavy_thread', 4, '2000-01-01 00:00:00', '81bad9c3-c346-11ec-8871-c5d0c1587542');
+REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
 	('iron_chain_boots', 'tanned_leather_squares', 3, '2000-01-01 00:00:00', '81bf80a7-c33d-11ec-8871-c5d0c1587542'),
 	('dolomite_war_spear3', 'dolomite_metal_bars', 23, '2000-01-01 00:00:00', '81cc3567-c345-11ec-8871-c5d0c1587542'),
 	('alloy_battle_axe', 'alloy_metal_bars', 29, '2000-01-01 00:00:00', '81d146de-c33c-11ec-8871-c5d0c1587542'),
@@ -15624,12 +15625,12 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('rowan_breadboard3', 'rowan_wooden_boards', 2, '2000-01-01 00:00:00', 'acab92e5-c348-11ec-8871-c5d0c1587542'),
 	('elm_round_shield2', 'elm_wooden_boards', 2, '2000-01-01 00:00:00', 'acad4e0d-c341-11ec-8871-c5d0c1587542'),
 	('woolen_padded_cap2', 'woolen_heavy_thread', 5, '2000-01-01 00:00:00', 'acb3d28d-c343-11ec-8871-c5d0c1587542'),
-	('bronze_plate_helm', 'woolen_heavy_thread', 5, '2000-01-01 00:00:00', 'acb5e21e-c33d-11ec-8871-c5d0c1587542'),
+	('bronze_plate_helm', 'woolen_heavy_thread', 5, '2000-01-01 00:00:00', 'acb5e21e-c33d-11ec-8871-c5d0c1587542');
+REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
 	('imbued_padded_cruaigh_helm3', 'seamist_heavy_thread', 7, '2000-01-01 00:00:00', 'acb7052d-c347-11ec-8871-c5d0c1587542'),
 	('dark_gray_enamel3', 'cloisonne', 10, '2000-01-01 00:00:00', 'acb7e204-c346-11ec-8871-c5d0c1587542'),
 	('dark_violet_leather_dye', 'crystal_flask', 1, '2000-01-01 00:00:00', 'acb8b44b-c33e-11ec-8871-c5d0c1587542'),
-	('bronze_lucerne_hammer', 'bronze_metal_bars', 29, '2000-01-01 00:00:00', 'acbc2121-c33c-11ec-8871-c5d0c1587542');
-REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
+	('bronze_lucerne_hammer', 'bronze_metal_bars', 29, '2000-01-01 00:00:00', 'acbc2121-c33c-11ec-8871-c5d0c1587542'),
 	('imperfect_heated_battle_jewel2', 'pal_gem', 1, '2000-01-01 00:00:00', 'acc640c7-c344-11ec-8871-c5d0c1587542'),
 	('fine_alloy_heavy_starkakedja_hauberk2', 'fine_alloy_metal_bars', 75, '2000-01-01 00:00:00', 'acc7fa2d-c342-11ec-8871-c5d0c1587542'),
 	('imbued_padded_leather_jerkin', 'imbued_leather_squares', 65, '2000-01-01 00:00:00', 'acc8a229-c33f-11ec-8871-c5d0c1587542'),
@@ -19491,7 +19492,8 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('netherium_chain', 'netherium_metal_bars', 11, '2000-01-01 00:00:00', 'd67d96d7-c33c-11ec-8871-c5d0c1587542'),
 	('steel_scaled_breastplate', 'brocade_heavy_thread', 10, '2000-01-01 00:00:00', 'd68464fa-c33d-11ec-8871-c5d0c1587542'),
 	('faceted_vapor_fervor_sigil', 'ros_gem', 1, '2000-01-01 00:00:00', 'd685fec4-c340-11ec-8871-c5d0c1587542'),
-	('cured_scabbard', 'steel_metal_bars', 1, '2000-01-01 00:00:00', 'd68c8959-c33e-11ec-8871-c5d0c1587542'),
+	('cured_scabbard', 'steel_metal_bars', 1, '2000-01-01 00:00:00', 'd68c8959-c33e-11ec-8871-c5d0c1587542');
+REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `LastTimeRowUpdated`, `CraftedXItem_ID`) VALUES
 	('polished_fiery_primal_rune2', 'mon_gem', 1, '2000-01-01 00:00:00', 'd6900d46-c344-11ec-8871-c5d0c1587542'),
 	('netherium_chain', 'dyrwood_wooden_boards', 2, '2000-01-01 00:00:00', 'd691c076-c33c-11ec-8871-c5d0c1587542'),
 	('blue_cloth_dye2', 'flask_of_water', 6, '2000-01-01 00:00:00', 'd692de6e-c342-11ec-8871-c5d0c1587542'),
@@ -23110,7 +23112,3 @@ REPLACE INTO `craftedxitem` (`CraftedItemId_nb`, `IngredientId_nb`, `Count`, `La
 	('dyrwood_shod_quarterstaff', 'eldritch_leather_squares', 1, '2000-01-01 00:00:00', 'fffb5c74-c33f-11ec-8871-c5d0c1587542');
 /*!40000 ALTER TABLE `craftedxitem` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

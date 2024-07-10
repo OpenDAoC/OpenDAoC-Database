@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `startuplocation` (
   `StartupLoc_ID` int(11) NOT NULL AUTO_INCREMENT,
   `XPos` int(11) NOT NULL DEFAULT 0,
@@ -19,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `startuplocation` (
   `ClientRegionID` int(11) NOT NULL DEFAULT 0,
   `LastTimeRowUpdated` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   PRIMARY KEY (`StartupLoc_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1003 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1003 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `startuplocation` DISABLE KEYS */;
 REPLACE INTO `startuplocation` (`StartupLoc_ID`, `XPos`, `YPos`, `ZPos`, `Heading`, `Region`, `MinVersion`, `RealmID`, `RaceID`, `ClassID`, `ClientRegionID`, `LastTimeRowUpdated`) VALUES
@@ -154,7 +153,3 @@ REPLACE INTO `startuplocation` (`StartupLoc_ID`, `XPos`, `YPos`, `ZPos`, `Headin
 	(999, 347279, 489681, 5200, 2332, 200, 0, 3, 99, 99, 0, '2017-01-08 18:50:46');
 /*!40000 ALTER TABLE `startuplocation` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

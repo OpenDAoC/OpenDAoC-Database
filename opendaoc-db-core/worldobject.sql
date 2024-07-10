@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `worldobject` (
   `ClassType` text DEFAULT NULL,
   `TranslationId` text DEFAULT NULL,
@@ -23,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `worldobject` (
   `WorldObject_ID` varchar(255) NOT NULL,
   PRIMARY KEY (`WorldObject_ID`),
   KEY `I_WorldObject_Region` (`Region`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `worldobject` DISABLE KEYS */;
 REPLACE INTO `worldobject` (`ClassType`, `TranslationId`, `Name`, `ExamineArticle`, `X`, `Y`, `Z`, `Heading`, `Region`, `Model`, `Emblem`, `Realm`, `RespawnInterval`, `LastTimeRowUpdated`, `WorldObject_ID`) VALUES
@@ -828,7 +827,3 @@ REPLACE INTO `worldobject` (`ClassType`, `TranslationId`, `Name`, `ExamineArticl
 	('DOL.GS.GameItem', NULL, 'Freeya\'s Grave', NULL, 763740, 646102, 8682, 118, 100, 636, 0, 2, 0, '2022-01-14 18:01:45', 'freeya_grave_questitem');
 /*!40000 ALTER TABLE `worldobject` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

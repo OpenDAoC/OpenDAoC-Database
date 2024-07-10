@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `mobxambientbehaviour` (
   `Source` varchar(255) NOT NULL,
   `Trigger` text NOT NULL,
@@ -16,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `mobxambientbehaviour` (
   `MobXAmbientBehaviour_ID` varchar(255) NOT NULL,
   PRIMARY KEY (`MobXAmbientBehaviour_ID`),
   KEY `I_MobXAmbientBehaviour_Source` (`Source`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `mobxambientbehaviour` DISABLE KEYS */;
 REPLACE INTO `mobxambientbehaviour` (`Source`, `Trigger`, `Emote`, `Text`, `Chance`, `Voice`, `LastTimeRowUpdated`, `MobXAmbientBehaviour_ID`) VALUES
@@ -270,7 +269,3 @@ REPLACE INTO `mobxambientbehaviour` (`Source`, `Trigger`, `Emote`, `Text`, `Chan
 	('siabra venator', 'dying', 0, '{sourcename} says, "You know nothing of our trials and tribulations within the Veil! Pathetic {race}! You will pay by the unseen hand of the Unseelie Court for your actions this day!"', 30, 'c', '2022-01-22 15:00:00', 'siabravenator-unseeliecourt');
 /*!40000 ALTER TABLE `mobxambientbehaviour` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

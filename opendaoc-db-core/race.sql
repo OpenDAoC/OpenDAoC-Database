@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `race` (
   `ID` int(11) NOT NULL DEFAULT 0,
   `Name` varchar(255) NOT NULL,
@@ -23,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `race` (
   PRIMARY KEY (`Race_ID`),
   UNIQUE KEY `U_Race_ID` (`ID`),
   UNIQUE KEY `U_Race_Name` (`Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `race` DISABLE KEYS */;
 REPLACE INTO `race` (`ID`, `Name`, `ResistBody`, `ResistCold`, `ResistCrush`, `ResistEnergy`, `ResistHeat`, `ResistMatter`, `ResistNatural`, `ResistSlash`, `ResistSpirit`, `ResistThrust`, `LastTimeRowUpdated`, `Race_ID`) VALUES
@@ -70,7 +69,3 @@ REPLACE INTO `race` (`ID`, `Name`, `ResistBody`, `ResistCold`, `ResistCrush`, `R
 	(25, 'wintryquestmobs', 22, 35, 25, 20, 14, 18, 50, 26, 23, 24, '2000-01-01 00:00:00', 'wintry');
 /*!40000 ALTER TABLE `race` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

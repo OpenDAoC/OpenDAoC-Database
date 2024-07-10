@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `mobxloottemplate` (
   `MobName` varchar(255) NOT NULL,
   `LootTemplateName` varchar(255) NOT NULL,
@@ -14,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `mobxloottemplate` (
   PRIMARY KEY (`MobXLootTemplate_ID`),
   KEY `I_MobXLootTemplate_MobName` (`MobName`),
   KEY `I_MobXLootTemplate_LootTemplateName` (`LootTemplateName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `mobxloottemplate` DISABLE KEYS */;
 REPLACE INTO `mobxloottemplate` (`MobName`, `LootTemplateName`, `DropCount`, `LastTimeRowUpdated`, `MobXLootTemplate_ID`) VALUES
@@ -3239,7 +3238,3 @@ REPLACE INTO `mobxloottemplate` (`MobName`, `LootTemplateName`, `DropCount`, `La
 	('Curmudgeon Puggard', 'Yellow_Curmudgeon_Tooth', 1, '2022-01-06 00:00:00', 'Yellow_Curmudgeon_Tooth_XPItem');
 /*!40000 ALTER TABLE `mobxloottemplate` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

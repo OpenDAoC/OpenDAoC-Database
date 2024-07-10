@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `battleground` (
   `RegionID` smallint(5) unsigned NOT NULL DEFAULT 0,
   `MinLevel` tinyint(3) unsigned NOT NULL DEFAULT 0,
@@ -13,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `battleground` (
   `LastTimeRowUpdated` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
   `Battleground_ID` varchar(255) NOT NULL,
   PRIMARY KEY (`Battleground_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `battleground` DISABLE KEYS */;
 REPLACE INTO `battleground` (`RegionID`, `MinLevel`, `MaxLevel`, `MaxRealmLevel`, `LastTimeRowUpdated`, `Battleground_ID`) VALUES
@@ -24,7 +23,3 @@ REPLACE INTO `battleground` (`RegionID`, `MinLevel`, `MaxLevel`, `MaxRealmLevel`
 	(252, 20, 24, 10, '2000-01-01 00:00:00', 'Thidranki (Level 20-24 - RR2L0)');
 /*!40000 ALTER TABLE `battleground` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

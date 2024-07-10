@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `keepposition` (
   `ComponentSkin` int(11) NOT NULL DEFAULT 0,
   `ComponentRotation` int(11) NOT NULL DEFAULT 0,
@@ -24,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `keepposition` (
   KEY `I_KeepPosition_TemplateID` (`TemplateID`),
   KEY `I_KeepPosition_Height` (`Height`),
   KEY `I_KeepPosition_ClassType` (`ClassType`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 /*!40000 ALTER TABLE `keepposition` DISABLE KEYS */;
 REPLACE INTO `keepposition` (`ComponentSkin`, `ComponentRotation`, `TemplateID`, `Height`, `XOff`, `YOff`, `ZOff`, `HOff`, `ClassType`, `TemplateType`, `KeepType`, `LastTimeRowUpdated`, `KeepPosition_ID`) VALUES
@@ -85,7 +84,3 @@ REPLACE INTO `keepposition` (`ComponentSkin`, `ComponentRotation`, `TemplateID`,
 	(24, 1, '3ac30fcd-22cd-4ae2-9077-71044a290d14', 0, 367, -908, 0, 2002, 'DOL.GS.Keeps.GameKeepDoor', 1, 0, '2021-06-28 18:10:48', 'fecb5138-f9e3-4240-bf8e-7239916b49f1');
 /*!40000 ALTER TABLE `keepposition` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

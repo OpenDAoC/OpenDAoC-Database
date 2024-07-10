@@ -4,7 +4,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 CREATE TABLE IF NOT EXISTS `crafteditem` (
   `CraftedItemID` varchar(255) NOT NULL,
   `Id_nb` varchar(255) NOT NULL,
@@ -16,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `crafteditem` (
   PRIMARY KEY (`CraftedItemID`) USING BTREE,
   UNIQUE KEY `U_CraftedItem_CraftedItem_ID` (`CraftedItem_ID`) USING BTREE,
   KEY `I_CraftedItem_Id_nb` (`Id_nb`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=DYNAMIC;
 
 /*!40000 ALTER TABLE `crafteditem` DISABLE KEYS */;
 REPLACE INTO `crafteditem` (`CraftedItemID`, `Id_nb`, `CraftingLevel`, `CraftingSkillType`, `MakeTemplated`, `LastTimeRowUpdated`, `CraftedItem_ID`) VALUES
@@ -5586,7 +5585,8 @@ REPLACE INTO `crafteditem` (`CraftedItemID`, `Id_nb`, `CraftingLevel`, `Crafting
 	('4567', 'faceted_earthen_evocation_sigil', 664, 13, 0, '2000-01-01 00:00:00', '4567'),
 	('4568', 'precious_earthen_evocation_sigil', 764, 13, 0, '2000-01-01 00:00:00', '4568'),
 	('4569', 'flawless_earthen_evocation_sigil', 864, 13, 0, '2000-01-01 00:00:00', '4569'),
-	('4570', 'perfect_earthen_evocation_sigil', 964, 13, 0, '2000-01-01 00:00:00', '4570'),
+	('4570', 'perfect_earthen_evocation_sigil', 964, 13, 0, '2000-01-01 00:00:00', '4570');
+REPLACE INTO `crafteditem` (`CraftedItemID`, `Id_nb`, `CraftingLevel`, `CraftingSkillType`, `MakeTemplated`, `LastTimeRowUpdated`, `CraftedItem_ID`) VALUES
 	('4571', 'raw_icy_evocation_sigil', 67, 13, 0, '2000-01-01 00:00:00', '4571'),
 	('4572', 'uncut_icy_evocation_sigil', 167, 13, 0, '2000-01-01 00:00:00', '4572'),
 	('4573', 'rough_icy_evocation_sigil', 267, 13, 0, '2000-01-01 00:00:00', '4573'),
@@ -8507,7 +8507,3 @@ REPLACE INTO `crafteditem` (`CraftedItemID`, `Id_nb`, `CraftingLevel`, `Crafting
 	('999', 'netherium_scaled_plate_boots', 885, 2, 0, '2000-01-01 00:00:00', '999');
 /*!40000 ALTER TABLE `crafteditem` ENABLE KEYS */;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
