@@ -1,0 +1,125 @@
+#!/usr/bin/env node
+
+/**
+ * RbxSyn CodeSync CLI
+ * 
+ * Usage:
+ *   bxsync serve    Start the sync server
+ *   bxsync status   Check server status
+ *   bxsync help     Show this help message
+ */
+
+const { spawn } = require('child_process');
+const path = require('path');
+
+const args = process.argv.slice(2);
+const command = args[0] || 'serve';
+
+function startServer() {
+    const serverPath = path.join(__dirname, '..', 'server.js');
+    console.log('Starting RbxSyn CodeSync Server...');
+    
+    const server = spawn('node', [serverPath], {
+        stdio: 'inherit',
+        cwd: path.join(__dirname, '..')
+    });
+
+    server.on('error', (error) => {
+        console.error('Failed to start server:', error.message);
+        process.exit(1);
+    });
+
+    server.on('exit', (code) => {
+        process.exit(code);
+    });
+
+    // Handle graceful shutdown
+    process.on('SIGTERM', () => {
+        server.kill('SIGTERM');
+    });
+
+    process.on('SIGINT', () => {
+        server.kill('SIGINT');
+    });
+}
+
+async function checkStatus() {
+    try {
+        const http = require('http');
+        const req = http.get('http://localhost:3000/api/status', (res) => {
+            let data = '';
+            
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
+            
+            res.on('end', () => {
+                try {
+                    const status = JSON.parse(data);
+                    console.log('Server Status:', status.status);
+                    console.log('Project:', status.project);
+                    console.log('Total Scripts:', status.totalScripts);
+                    console.log('Last Sync:', status.lastSync);
+                    console.log('Uptime:', Math.floor(status.uptime), 'seconds');
+                } catch (e) {
+                    console.error('Failed to parse server response');
+                }
+            });
+        });
+        
+        req.on('error', (error) => {
+            console.error('Server is not running or not accessible');
+            console.error('Error:', error.message);
+        });
+    } catch (error) {
+        console.error('Failed to check status:', error.message);
+    }
+}
+
+function showHelp() {
+    console.log(`
+RbxSyn CodeSync CLI
+===================
+
+A command-line interface for the RbxSyn CodeSync Server that enables
+real-time synchronization between Roblox Studio and your codespace.
+
+Usage:
+  bxsync [command]
+
+Commands:
+  serve     Start the sync server (default)
+  status    Check if the server is running and get its status
+  help      Show this help message
+
+Options:
+  --port    Specify a custom port (default: 3000)
+  --help    Show this help message
+
+Examples:
+  bxsync serve              Start the server on default port 3000
+  bxsync serve --port 8080  Start the server on port 8080
+  bxsync status             Check server status
+  bxsync help               Show this help message
+
+For more information, see the README.md file.
+`);
+}
+
+// Main CLI logic
+switch (command) {
+    case 'serve':
+        startServer();
+        break;
+    case 'status':
+        checkStatus();
+        break;
+    case 'help':
+        showHelp();
+        break;
+    default:
+        console.log(`Unknown command: ${command}`);
+        console.log('Run "bxsync help" for usage information.');
+        process.exit(1);
+}
+
