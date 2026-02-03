@@ -3,5 +3,8 @@
         {
             "path": "../.."
         }
-    ]
+    ],
+    "settings": {
+        "luau-lsp.plugin.enabled": true
+    }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "RbxSyn CodeSync",
+  "description": "Sync Roblox scripts with your codespace using RbxSyn",
+  "version": "1.0.0",
+  "settings": {
+    "codespaceUrl": "",
+    "autoSync": true,
+    "syncInterval": 30
+  }
+}

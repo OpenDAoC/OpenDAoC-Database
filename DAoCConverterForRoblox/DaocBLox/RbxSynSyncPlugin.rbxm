@@ -1,0 +1,383 @@
+-- RbxSyn CodeSync Plugin for Roblox Studio
+-- Version: 1.0.0
+-- Description: Sync Roblox scripts with your codespace using RbxSyn
+
+local Plugin = {}
+Plugin.Name = "RbxSyn CodeSync"
+Plugin.Author = "DAoC Converter Team"
+Plugin.Version = "1.0.0"
+Plugin.Description = "Sync Roblox scripts with your codespace using RbxSyn"
+
+-- Plugin Settings
+local SETTINGS = {
+    codespaceUrl = "",
+    autoSync = true,
+    syncInterval = 30,
+    lastSyncTime = 0
+}
+
+-- Plugin UI Elements
+local toolbar
+local button
+local dockWidget
+local mainFrame
+local statusLabel
+local syncButton
+local settingsFrame
+local urlTextBox
+local autoSyncCheckbox
+
+function Plugin:Init()
+    -- Create toolbar button
+    toolbar = plugin:CreateToolbar("RbxSyn CodeSync")
+    button = toolbar:CreateButton("sync_icon", "Sync with Codespace", "Sync your scripts with RbxSyn")
+    button.ClickableWhenViewportHidden = true
+    
+    -- Create dock widget
+    dockWidget = plugin:CreateDockWidgetPluginGui(
+        "RbxSynSyncDock",
+        DockWidgetPluginGuiInfo.new(
+            Enum.InitialDockState.Right,
+            true,
+            false,
+            300,
+            400,
+            200,
+            300
+        )
+    )
+    dockWidget.Title = "RbxSyn CodeSync"
+    
+    -- Create main UI
+    self:CreateUI()
+    
+    -- Connect button click
+    button.Click:Connect(function()
+        dockWidget.Enabled = not dockWidget.Enabled
+    end)
+    
+    -- Load settings
+    self:LoadSettings()
+    
+    -- Initialize sync system
+    self:InitSyncSystem()
+end
+
+function Plugin:CreateUI()
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "RbxSynSyncGui"
+    screenGui.Parent = plugin:GetService("CoreGui")
+    
+    local mainFrame = Instance.new("Frame")
+    mainFrame.Size = UDim2.new(1, 0, 1, 0)
+    mainFrame.BackgroundTransparency = 1
+    mainFrame.Parent = dockWidget
+    
+    -- Title
+    local title = Instance.new("TextLabel")
+    title.Size = UDim2.new(1, -20, 0, 40)
+    title.Position = UDim2.new(0, 10, 0, 10)
+    title.Text = "RbxSyn CodeSync"
+    title.Font = Enum.Font.SourceSansBold
+    title.TextSize = 24
+    title.BackgroundTransparency = 1
+    title.TextXAlignment = Enum.TextXAlignment.Left
+    title.Parent = mainFrame
+    
+    -- Status Label
+    statusLabel = Instance.new("TextLabel")
+    statusLabel.Size = UDim2.new(1, -20, 0, 60)
+    statusLabel.Position = UDim2.new(0, 10, 0, 60)
+    statusLabel.Text = "Ready to sync"
+    statusLabel.Font = Enum.Font.SourceSans
+    statusLabel.TextSize = 14
+    statusLabel.BackgroundTransparency = 1
+    statusLabel.TextXAlignment = Enum.TextXAlignment.Left
+    statusLabel.TextWrapped = true
+    statusLabel.Parent = mainFrame
+    
+    -- Settings Frame
+    settingsFrame = Instance.new("Frame")
+    settingsFrame.Size = UDim2.new(1, -20, 0, 150)
+    settingsLabel = UDim2.new(0, 10, 0, 120)
+    settingsFrame.Position = UDim2.new(0, 10, 0, 120)
+    settingsFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    settingsFrame.BorderSizePixel = 0
+    settingsFrame.Parent = mainFrame
+    
+    -- Settings Title
+    local settingsTitle = Instance.new("TextLabel")
+    settingsTitle.Size = UDim2.new(1, -20, 0, 30)
+    settingsTitle.Position = UDim2.new(0, 10, 0, 5)
+    settingsTitle.Text = "Settings"
+    settingsTitle.Font = Enum.Font.SourceSansBold
+    settingsTitle.TextSize = 18
+    settingsTitle.BackgroundTransparency = 1
+    settingsTitle.TextXAlignment = Enum.TextXAlignment.Left
+    settingsTitle.Parent = settingsFrame
+    
+    -- Codespace URL Input
+    local urlLabel = Instance.new("TextLabel")
+    urlLabel.Size = UDim2.new(1, -20, 0, 20)
+    urlLabel.Position = UDim2.new(0, 10, 0, 35)
+    urlLabel.Text = "Codespace URL:"
+    urlLabel.Font = Enum.Font.SourceSans
+    urlLabel.TextSize = 14
+    urlLabel.BackgroundTransparency = 1
+    urlLabel.TextXAlignment = Enum.TextXAlignment.Left
+    urlLabel.Parent = settingsFrame
+    
+    urlTextBox = Instance.new("TextBox")
+    urlTextBox.Size = UDim2.new(1, -20, 0, 30)
+    urlTextBox.Position = UDim2.new(0, 10, 0, 55)
+    urlTextBox.PlaceholderText = "Enter your codespace URL..."
+    urlTextBox.Text = SETTINGS.codespaceUrl
+    urlTextBox.Font = Enum.Font.SourceSans
+    urlTextBox.TextSize = 14
+    urlTextBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    urlTextBox.BorderSizePixel = 0
+    urlTextBox.TextXAlignment = Enum.TextXAlignment.Left
+    urlTextBox.Parent = settingsFrame
+    
+    -- Auto Sync Checkbox
+    autoSyncCheckbox = Instance.new("TextButton")
+    autoSyncCheckbox.Size = UDim2.new(1, -20, 0, 25)
+    autoSyncCheckbox.Position = UDim2.new(0, 10, 0, 95)
+    autoSyncCheckbox.Text = "Enable Auto Sync"
+    autoSyncCheckbox.Font = Enum.Font.SourceSans
+    autoSyncCheckbox.TextSize = 14
+    autoSyncCheckbox.BackgroundColor3 = SETTINGS.autoSync and Color3.fromRGB(76, 175, 80) or Color3.fromRGB(60, 60, 60)
+    autoSyncCheckbox.BorderSizePixel = 0
+    autoSyncCheckbox.Parent = settingsFrame
+    
+    autoSyncCheckbox.MouseButton1Click:Connect(function()
+        SETTINGS.autoSync = not SETTINGS.autoSync
+        autoSyncCheckbox.BackgroundColor3 = SETTINGS.autoSync and Color3.fromRGB(76, 175, 80) or Color3.fromRGB(60, 60, 60)
+        self:SaveSettings()
+    end)
+    
+    -- Sync Button
+    syncButton = Instance.new("TextButton")
+    syncButton.Size = UDim2.new(1, -20, 0, 50)
+    syncButton.Position = UDim2.new(0, 10, 0, 280)
+    syncButton.Text = "Sync Now"
+    syncButton.Font = Enum.Font.SourceSansBold
+    syncButton.TextSize = 18
+    syncButton.BackgroundColor3 = Color3.fromRGB(66, 133, 244)
+    syncButton.BorderSizePixel = 0
+    syncButton.Parent = mainFrame
+    
+    syncButton.MouseButton1Click:Connect(function()
+        self:Sync()
+    end)
+    
+    -- Progress Bar
+    progressBar = Instance.new("Frame")
+    progressBar.Size = UDim2.new(1, -40, 0, 10)
+    progressBar.Position = UDim2.new(0, 20, 0, 340)
+    progressBar.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    progressBar.BorderSizePixel = 0
+    progressBar.Visible = false
+    progressBar.Parent = mainFrame
+    
+    progressFill = Instance.new("Frame")
+    progressFill.Size = UDim2.new(0, 0, 1, 0)
+    progressFill.BackgroundColor3 = Color3.fromRGB(76, 175, 80)
+    progressFill.BorderSizePixel = 0
+    progressFill.Parent = progressBar
+    
+    mainFrame.Parent = screenGui
+end
+
+function Plugin:LoadSettings()
+    local success, settings = pcall(function()
+        return plugin:GetSetting("RbxSynSettings")
+    end)
+    
+    if success and settings then
+        SETTINGS.codespaceUrl = settings.codespaceUrl or ""
+        SETTINGS.autoSync = settings.autoSync ~= false
+        SETTINGS.syncInterval = settings.syncInterval or 30
+        
+        -- Update UI
+        if urlTextBox then
+            urlTextBox.Text = SETTINGS.codespaceUrl
+        end
+        if autoSyncCheckbox then
+            autoSyncCheckbox.BackgroundColor3 = SETTINGS.autoSync and Color3.fromRGB(76, 175, 80) or Color3.fromRGB(60, 60, 60)
+        end
+    end
+end
+
+function Plugin:SaveSettings()
+    plugin:SetSetting("RbxSynSettings", {
+        codespaceUrl = SETTINGS.codespaceUrl,
+        autoSync = SETTINGS.autoSync,
+        syncInterval = SETTINGS.syncInterval
+    })
+end
+
+function Plugin:InitSyncSystem()
+    -- Listen for script changes
+    game.DescendantAdded:Connect(function(descendant)
+        if descendant:IsA("LuaSourceContainer") then
+            descendant:GetPropertyChangedSignal("Source"):Connect(function()
+                self:QueueSync(descendant)
+            end)
+        end
+    end)
+    
+    -- Start auto-sync timer if enabled
+    if SETTINGS.autoSync then
+        self:StartAutoSync()
+    end
+end
+
+function Plugin:QueueSync(script)
+    -- Debounce sync requests
+    if self.syncTimer then
+        self.syncTimer:Cancel()
+    end
+    
+    self.syncTimer = delay(2, function()
+        self:Sync()
+    end)
+end
+
+function Plugin:StartAutoSync()
+    -- Sync every SETTINGS.syncInterval seconds
+    while true do
+        wait(SETTINGS.syncInterval)
+        if SETTINGS.autoSync then
+            self:Sync()
+        end
+    end
+end
+
+function Plugin:Sync()
+    if not SETTINGS.codespaceUrl or SETTINGS.codespaceUrl == "" then
+        self:UpdateStatus("Please configure your codespace URL in settings")
+        return false
+    end
+    
+    self:UpdateStatus("Starting sync...")
+    self:ShowProgress(true)
+    
+    local success, result = pcall(function()
+        -- Collect all scripts from game
+        local scripts = {}
+        
+        -- Search in all services
+        local services = {
+            game.ServerScriptService,
+            game.ReplicatedStorage,
+            game.StarterGui,
+            game.StarterPack,
+            game.Workspace
+        }
+        
+        for _, service in ipairs(services) do
+            for _, descendant in ipairs(service:GetDescendants()) do
+                if descendant:IsA("LuaSourceContainer") then
+                    table.insert(scripts, {
+                        name = descendant.Name,
+                        path = self:GetFullPath(descendant),
+                        source = descendant.Source,
+                        className = descendant.ClassName
+                    })
+                end
+            end
+        end
+        
+        -- Prepare sync data
+        local syncData = {
+            timestamp = os.time(),
+            project = "DaocBLox",
+            version = "1.0.0",
+            scripts = scripts
+        }
+        
+        -- Send to codespace (this would be implemented with HttpService)
+        local response = self:SendToCodespace(syncData)
+        
+        return response
+    end)
+    
+    if success then
+        self:UpdateStatus("Sync completed successfully! " .. tostring(#result.synced or 0) .. " scripts synced")
+        self:UpdateProgress(100)
+        wait(1)
+        self:ShowProgress(false)
+        SETTINGS.lastSyncTime = os.time()
+        self:SaveSettings()
+        return true
+    else
+        self:UpdateStatus("Sync failed: " .. tostring(result))
+        self:ShowProgress(false)
+        return false
+    end
+end
+
+function Plugin:SendToCodespace(data)
+    -- This would use HttpService to communicate with the codespace
+    local HttpService = game:GetService("HttpService")
+    
+    local payload = HttpService:JSONEncode(data)
+    
+    local success, response = pcall(function()
+        return HttpService:RequestAsync({
+            Url = SETTINGS.codespaceUrl .. "/api/sync",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json",
+                ["User-Agent"] = "RbxSyn-Plugin/1.0"
+            },
+            Body = payload
+        })
+    end)
+    
+    if success then
+        if response.StatusCode == 200 then
+            return HttpService:JSONDecode(response.Body)
+        else
+            error("Server returned status: " .. tostring(response.StatusCode))
+        end
+    else
+        error("Connection failed: " .. tostring(response))
+    end
+end
+
+function Plugin:GetFullPath(instance)
+    local path = instance.Name
+    local parent = instance.Parent
+    
+    while parent and parent ~= game do
+        path = parent.Name .. "/" .. path
+        parent = parent.Parent
+    end
+    
+    return path
+end
+
+function Plugin:UpdateStatus(text)
+    if statusLabel then
+        statusLabel.Text = text
+    end
+end
+
+function Plugin:ShowProgress(show)
+    if progressBar then
+        progressBar.Visible = show
+    end
+end
+
+function Plugin:UpdateProgress(percent)
+    if progressFill then
+        progressFill.Size = UDim2.new(percent / 100, 0, 1, 0)
+    end
+end
+
+-- Initialize plugin
+Plugin:Init()
+
+return Plugin
