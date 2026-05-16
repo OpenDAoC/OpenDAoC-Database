@@ -21,6 +21,6 @@ REPLACE INTO `lootgenerator` (`MobName`, `MobGuild`, `MobFaction`, `RegionID`, `
 	(NULL, NULL, NULL, 0, 'DOL.GS.ROGMobGenerator', 0, '2000-01-01 00:00:00', 'Atlas ROGs'),
 	(NULL, NULL, NULL, 0, 'DOL.GS.LootGeneratorMoney', 0, '2000-01-01 00:00:00', 'money'),
 	(NULL, NULL, NULL, 0, 'DOL.GS.LootGeneratorOneTimeDrop', 0, '2000-01-01 00:00:00', 'otd'),
-	(NULL, NULL, NULL, 0, 'DOL.GS.LootGeneratorTemplate', 0, '2000-01-01 00:00:00', 'template');
+	(NULL, NULL, NULL, 0, 'DOL.GS.LootGeneratorMobTemplate', 0, '2000-01-01 00:00:00', 'template');
 /*!40000 ALTER TABLE `lootgenerator` ENABLE KEYS */;
 
