@@ -83,7 +83,6 @@ CREATE TABLE IF NOT EXISTS `dolcharacters` (
   `RespecAmountAllSkill` int(11) NOT NULL DEFAULT 0,
   `RespecAmountSingleSkill` int(11) NOT NULL DEFAULT 0,
   `RespecAmountRealmSkill` int(11) NOT NULL DEFAULT 0,
-  `RespecAmountDOL` int(11) NOT NULL DEFAULT 0,
   `RespecAmountChampionSkill` int(11) NOT NULL DEFAULT 0,
   `IsLevelRespecUsed` tinyint(1) NOT NULL DEFAULT 0,
   `RespecBought` int(11) NOT NULL DEFAULT 0,
