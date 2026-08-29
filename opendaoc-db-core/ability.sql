@@ -1,9 +1,12 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE TABLE IF NOT EXISTS `ability` (
   `AbilityID` int(11) NOT NULL AUTO_INCREMENT,
   `KeyName` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -17,7 +20,6 @@ CREATE TABLE IF NOT EXISTS `ability` (
   UNIQUE KEY `U_Ability_KeyName` (`KeyName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
-/*!40000 ALTER TABLE `ability` DISABLE KEYS */;
 REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Description`, `IconID`, `Implementation`, `LastTimeRowUpdated`) VALUES
 	(1, 'Augmented Strength', 'Augmented Strength', 129, 'Increases Strength by the listed amount per level.', 0, 'DOL.GS.RealmAbilities.RAStrengthEnhancer', '2000-01-01 00:00:00'),
 	(2, 'Stag', 'Stag %n', 130, 'Whenever this ability is used, the Hero will shapeshift into a fearsome stag-headed Huntsman from Celtic Lore, and will receive bonus hit points. There are four different levels of of this ability: Initiate(15th level), Member(25th level), Leader(35th level), and Master(45th level). While in this form, the hero has increased hit points - +20% for the 15th level ability up to +50% for the 45th level ability. The ability lasts for thirty seconds - at the end of this time, the hero\'s maximum hits will return to normal, but he keeps any hit point gain from the ability in his current hits.', 480, NULL, '2000-01-01 00:00:00'),
@@ -41,7 +43,7 @@ REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Descripti
 	(20, 'Wild Healing', 'Wild Healing', 148, 'Adds the listed percentage chance to critical heal on each target of a heal spell.', 0, 'DOL.GS.RealmAbilities.WildHealingAbility', '2000-01-01 00:00:00'),
 	(21, 'Wild Minion', 'Wild Minion', 149, 'Increases chance of pet dealing a critical hit in melee by the listed percentage.', 0, 'DOL.GS.RealmAbilities.WildMinionAbility', '2000-01-01 00:00:00'),
 	(22, 'Desperate Bowman', 'Desperate Bowman', 150, 'This ability is used with a bow. Does 300 damage and a 5 second (non resistible) stun. Bow and melee cannot be used for 15 seconds afterwards.', 3060, 'DOL.GS.RealmAbilities.DesperateBowmanAbility', '2000-01-01 00:00:00'),
-	(23, 'Mastery of Stealth', 'Mastery of Stealth', 151, 'Modifies stealth detection and stealth movement. Camouflage counters the Mastery of Stealth bonus, allowing an archer to only be seen at the normal range. Doesn\'t affect detect hidden classes when they are detecting other detect hidden classes. (Meaning it has no affect on assassins detecting assassins.)', 0, 'DOL.GS.RealmAbilities.AtlasOF_MasteryOfStealth', '2000-01-01 00:00:00'),
+	(23, 'Mastery of Stealth', 'Mastery of Stealth', 151, 'Modifies stealth detection and stealth movement. Camouflage counters the Mastery of Stealth bonus, allowing an archer to only be seen at the normal range. Doesn\'t affect detect hidden classes when they are detecting other detect hidden classes. (Meaning it has no affect on assassins detecting assassins.)', 0, 'DOL.GS.RealmAbilities.MasteryOfStealthAbility', '2000-01-01 00:00:00'),
 	(29, 'Weaponry: Slashing', 'Weaponry: Slashing', 11, 'The ability to use one-handed slashing weapons of all kinds. Training in the Slashing Skill results in a decreased damage variance and gives you access to the combat styles.', 0, NULL, '2000-01-01 00:00:00'),
 	(30, 'Augmented Constitution', 'Augmented Constitution', 158, 'Increases Constitution by the listed amount per level.', 0, 'DOL.GS.RealmAbilities.RAConstitutionEnhancer', '2000-01-01 00:00:00'),
 	(31, 'Mastery of Healing', 'Mastery of Healing', 159, 'Increases the effectiveness of healing spells by the listed percentage.', 0, 'DOL.GS.RealmAbilities.MasteryOfHealingAbility', '2000-01-01 00:00:00'),
@@ -280,7 +282,7 @@ REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Descripti
 	(270, 'AtlasOF_Toughness', 'Toughness', 530, 'Increases maximum hit points by 3% per level of this ability.', 0, 'DOL.GS.RealmAbilities.AtlasOF_ToughnessAbility', '2000-01-01 00:00:00'),
 	(271, 'AtlasOF_Regeneration', 'Regeneration', 531, 'Your hit points regenerate faster than normal.', 0, 'DOL.GS.RealmAbilities.AtlasOF_Regeneration', '2000-01-01 00:00:00'),
 	(272, 'AtlasOF_VeilRecovery', 'Veil Recovery', 532, 'Reduces duration of resurrection sickness by 10% per level.', 0, 'DOL.GS.RealmAbilities.AtlasOF_VeilRecovery', '2000-01-01 00:00:00'),
-	(273, 'AtlasOF_MasteryOfStealth', 'Mastery of Stealth', 533, 'Grants 5% movement speed increase while stealthed per level of this ability. Requires Augmented Quickness 2.', 0, 'DOL.GS.RealmAbilities.MasteryOfStealthAbility', '2000-01-01 00:00:00'),
+	(273, 'AtlasOF_MasteryOfStealth', 'Mastery of Stealth', 533, 'Grants 5% movement speed increase while stealthed per level of this ability. Requires Augmented Quickness 2.', 0, 'DOL.GS.RealmAbilities.AtlasOF_MasteryOfStealth', '2000-01-01 00:00:00'),
 	(274, 'AtlasOF_ArrowSalvaging', 'Arrow Salvaging', 534, '10% chance per level to not expend arrow on firing.', 0, 'DOL.GS.RealmAbilities.AtlasOF_ArrowSalvaging', '2000-01-01 00:00:00'),
 	(275, 'AtlasOF_DualistsReflexes', 'Dualist\'s Reflexes', 535, 'Additional 3% dual wield chance/damage for dual wield/left axe users per level of this ability.  Requires Augmented Dexterity 2.', 0, 'DOL.GS.RealmAbilities.AtlasOF_DualistsReflexes', '2000-01-01 00:00:00'),
 	(276, 'AtlasOF_SeeHidden', 'See Hidden', 536, 'Automatically detect stealthed characters that don\'t have the "SeeHidden" ability: Scouts, Hunters, Rangers, and Minstrels.', 0, 'DOL.GS.RealmAbilities.AtlasOF_SeeHidden', '2000-01-01 00:00:00'),
@@ -350,5 +352,9 @@ REPLACE INTO `ability` (`AbilityID`, `KeyName`, `Name`, `InternalID`, `Descripti
 	(340, 'AtlasOF_AvoidanceOfMagic', 'Avoidance of Magic', 136, 'Reduces all magic damage taken by the listed percentage. (This only works on damage. Does not work on disease, dots, or debuffs and does not affect the duration of crowd control spells)', 0, 'DOL.GS.RealmAbilities.AvoidanceOfMagicAbility', '2000-01-01 00:00:00'),
 	(345, 'AtlasOF_IgnorePainTank', 'Ignore Pain', 547, 'Self heal that heals approximately 20% hit points per level, and can be used in combat. Requires First Aid 2.', 4233, 'DOL.GS.RealmAbilities.AtlasOF_IgnorePainTank', '2000-01-01 00:00:00'),
 	(370, 'AtlasOF_DeterminationHybrid', 'Determination', 370, 'Reduces the duration of all crowd control spells by the listed percentage. Effect is cumulative at each level increase.', 0, 'DOL.GS.RealmAbilities.AtlasOF_DeterminationHybridAbility', '2000-01-01 00:00:00');
-/*!40000 ALTER TABLE `ability` ENABLE KEYS */;
 
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
